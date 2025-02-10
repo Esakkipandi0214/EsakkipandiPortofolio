@@ -54,7 +54,7 @@ const Projects = () => {
             
             <div className="mt-4 flex flex-wrap gap-2">
               {project.technologies.map((tech, index) => (
-                <span key={index} className="bg-orange-500 px-3 py-1 text-xs rounded-full text-gray-900 font-medium">{tech}</span>
+                <span key={index} className="bg-white px-3 py-1 text-xs  rounded-lg flex justify-center items-center text-gray-900 font-medium">{tech}</span>
               ))}
             </div>
             
