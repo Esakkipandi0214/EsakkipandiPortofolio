@@ -39,7 +39,7 @@ const Projects = () => {
     <section id="Project" className="py-16 px-6 bg-gradient-to-b from-gray-900 to-black text-white">
       <h2 className="text-4xl font-bold text-center mb-10 tracking-wide text-gray-100">My Projects</h2>
       
-      <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-8 max-w-6xl mx-auto">
+      <div className="grid lg:grid-cols-3  sm:grid-cols-2 gap-8 max-w-6xl mx-auto">
         {projects.map((project) => (
           <div
             key={project.id}

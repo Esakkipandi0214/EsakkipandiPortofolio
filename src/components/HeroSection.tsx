@@ -3,7 +3,7 @@ import Sticker from "../../public/HeroSection/Programming-amico.svg";
 
 export default function HeroSection() {
   return (
-    <div id="Home" className="w-full flex-1 min-h-screen sm:min-h-max  flex flex-col justify-center items-center px-6 sm:px-12">
+    <div id="Home" className="w-full flex-1 min-h-screen  md:min-h-max  flex flex-col justify-center items-center px-6 sm:px-12">
       {/* Content Wrapper */}
       <div className="relative w-full max-w-5xl text-center space-y-4">
         {/* Top Button */}

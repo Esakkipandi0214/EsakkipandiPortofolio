@@ -33,7 +33,7 @@ const Header = () => {
     
     return (
       <header className=" bg-transparent hidden sm:flex justify-center items-center text-white p-3">
-        <div className=" bg-gray-900 w-[60%] rounded-full px-2 flex justify-between items-center  h-[60px]">
+        <div className=" bg-gray-900  lg:w-[60%] rounded-full px-2 flex justify-between items-center  h-[60px]">
         {HeaderContents.slice(0,3).map((Content,index)=>(
             <button onClick={()=> handleNavigate(Content)} className={` ${isClickedContent === Content && "bg-orange-500"} rounded-full  py-2 px-6`} key={index}>
                 <h1 className=" text-white">{Content}</h1>
