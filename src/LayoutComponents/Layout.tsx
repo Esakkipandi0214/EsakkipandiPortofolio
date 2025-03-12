@@ -6,14 +6,14 @@ import Footer from "./Footer";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="flex pt-4 bg-[#f6f5f1]">
+    <div className="flex w-full pt-4 bg-[#f6f5f1]">
       {/* Sidebar */}
       <Sidebar />
 
       {/* Main Content */}
-      <div className="flex-1 h-auto overflow-x-hidden flex flex-col">
+      <div className="flex-1 h-auto w-full overflow-x-hidden flex flex-col">
         <Header />
-        <main className="p-2 overflow-x-hidden h-auto">{children}</main>
+        <main className="p-2 w-full overflow-x-hidden h-auto">{children}</main>
         <Footer/>
       </div>
     </div>
