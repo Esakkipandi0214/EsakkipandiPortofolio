@@ -1,5 +1,7 @@
-import { Code, Server, Database, LayoutDashboard, Cloud } from "lucide-react";
-// Globe
+"use client";
+import dynamic from "next/dynamic"; // Import dynamic
+import { motion } from "framer-motion";
+import { Code, Server, Database, LayoutDashboard, Cloud, Globe } from "lucide-react";
 
 const services = [
   {
@@ -32,33 +34,71 @@ const services = [
     description:
       "Deploying applications on Vercel, Netlify and Render for seamless deployment workflows.",
   },
-//   {
-//     title: "E-Commerce & Payment Integration",
-//     icon: <Globe size={40} className="text-yellow-500" />,
-//     description:
-//       "Building e-commerce platforms with Stripe, Razorpay, and PayPal integration for secure transactions.",
-//   },
+  {
+    title: "E-Commerce & Payment Integration",
+    icon: <Globe size={40} className="text-yellow-500" />,
+    description:
+      "Building e-commerce platforms with Stripe, Razorpay, and PayPal integration for secure transactions.",
+  },
 ];
 
-export default function Services() {
+function Services() {
   return (
-    <section id="Service" className="py-12 px-6 bg-[#f6f5f1]">
+    <motion.section
+      id="Service"
+      className="py-12 px-6 bg-[#f6f5f1]"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1, ease: "easeOut" }}
+      viewport={{ once: false, amount: 0.2 }} // `amount: 0.2` ensures animation triggers when 20% is in view
+    >
       <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-4xl font-bold text-gray-800">My Services</h2>
-        <p className="text-gray-600 mt-3">
-          I specialize in full-stack development, backend APIs, UI/UX, and cloud deployment.
-        </p>
+        <motion.h2
+          className="text-4xl font-bold text-gray-800"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.3 }}
+          viewport={{ once: false }}
+        >
+          My Services
+        </motion.h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+        <motion.p
+          className="text-gray-600 mt-3"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          viewport={{ once: false }}
+        >
+          I specialize in full-stack development, backend APIs, UI/UX, and cloud deployment.
+        </motion.p>
+
+        <motion.div
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10"
+          initial="hidden"
+          whileInView="visible"
+          transition={{ staggerChildren: 0.3 }}
+          viewport={{ once: false }}
+        >
           {services.map((service, index) => (
-            <div key={index} className="p-6 bg-[#3D3D3D] rounded-xl shadow-md flex flex-col items-center text-center">
+            <motion.div
+              key={index}
+              className="p-6 bg-[#3D3D3D] rounded-xl shadow-md flex flex-col items-center text-center"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: index * 0.2 }}
+              viewport={{ once: false }}
+            >
               {service.icon}
               <h3 className="mt-4 text-xl font-semibold text-white">{service.title}</h3>
-              <p className="mt-2 text-white ">{service.description}</p>
-            </div>
+              <p className="mt-2 text-white">{service.description}</p>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }
+
+// ✅ Wrap with dynamic to prevent SSR issues
+export default dynamic(() => Promise.resolve(Services), { ssr: false });

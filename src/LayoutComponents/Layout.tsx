@@ -6,7 +6,7 @@ import Footer from "./Footer";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="flex bg-[#f6f5f1]">
+    <div className="flex pt-4 bg-[#f6f5f1]">
       {/* Sidebar */}
       <Sidebar />
 
