@@ -1,19 +1,21 @@
 import Image from "next/image";
 import React from "react";
-import LearnYourself from '../../public/ProjectsImage/LearnYourself.png'
+// import LearnYourself from '../../public/ProjectsImage/LearnYourself.png'
 import TravelApp from '../../public/ProjectsImage/Traveling.png'
 import FileEncrypter from '../../public/ProjectsImage/FileEncrypter.png'
+import PrivateChat from '../../public/ProjectsImage/PrivateChat.png'
+import Todo from '../../public/ProjectsImage/Todo.jpg'
 
 const projects = [
-  {
-    id: 1,
-    title: "Test App",
-    description: "A full-stack MERN Test App for Students and people who want to test themself. Questions and Test modules along with their Result .",
-    image: LearnYourself,
-    technologies: ["Next", "Node.js", "MongoDB","Tailwind","TypeScript"],
-    liveDemo: "https://learn-yourserlf.vercel.app/",
-    github: "https://github.com/yourusername/ecommerce-project",
-  },
+  // {
+  //   id: 1,
+  //   title: "Test App",
+  //   description: "A full-stack MERN Test App for Students and people who want to test themself. Questions and Test modules along with their Result .",
+  //   image: LearnYourself,
+  //   technologies: ["Next", "Node.js", "MongoDB","Tailwind","TypeScript"],
+  //   liveDemo: "https://learn-yourserlf.vercel.app/",
+  //   github: "https://github.com/yourusername/ecommerce-project",
+  // },
   {
     id: 2,
     title: "Travel App",
@@ -32,12 +34,30 @@ const projects = [
     liveDemo: "https://file-encryptor-mu.vercel.app/",
     github: "https://github.com/yourusername/task-manager",
   },
+  {
+    id: 4,
+    title: "Private Chat App",
+    description: "A full-stack MERN for private chat application that allows users to communicate securely with end-to-end encryption. It features real-time messaging and a user-friendly interface.",
+    image: PrivateChat,
+    technologies: ["React js", "Node.js","Tailwind","TypeScript","Socket.io"],
+    liveDemo: "https://shadow-console-chat.vercel.app/",
+    github: "https://github.com/Esakkipandi0214/shadow-console-chat.git",
+  },
+  {
+    id: 5,
+    title: "Todo App",
+    description: "A full-stack MERN for todo application that allows users to manage their tasks efficiently. It features user authentication, task creation, and real-time updates. Also tagging system and filtering tasks by status.",
+    image: Todo,
+    technologies: ["React js", "Node.js","Tailwind","TypeScript","Express.js","Social login"],
+    liveDemo: "https://agenda-verse-build.vercel.app",
+    github: "https://github.com/Esakkipandi0214/shadow-console-chat.git",
+  }
 ];
 
 const Projects = () => {
   return (
     <section id="Project" className="py-16 px-6 bg-gradient-to-b from-gray-900 to-black text-white">
-      <h2 className="text-4xl font-bold text-center mb-10 tracking-wide text-gray-100">My Projects</h2>
+      <h2 className="text-4xl font-bold text-center mb-10 tracking-wide text-gray-100">My Personal Projects</h2>
       
       <div className="grid lg:grid-cols-3  sm:grid-cols-2 gap-8 max-w-6xl mx-auto">
         {projects.map((project) => (
