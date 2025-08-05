@@ -5,6 +5,8 @@ import AboutUs from '@/components/AboutUs'
 import Services from '@/components/Services'
 import Projects from '@/components/Projects'
 import Contact from '@/components/Contact'
+import Experience from '@/components/Experience'
+import Skills from '@/components/Skills'
 
 const index = () => {
   return (
@@ -13,6 +15,8 @@ const index = () => {
         <HeroSection/>
         <AboutUs/>
         <Services/>
+        <Skills/>
+        <Experience/>
         <Projects/>
         <Contact/>
       </div>
