@@ -14,7 +14,7 @@ const Header = () => {
       }
     }
     if (to === "Resume") {
-      const resumeUrl = "/Resume/EsakkiPandiFullStackDeveloper.pdf";
+      const resumeUrl = "/Resume/EsakkiPandi.pdf";
       const link = document.createElement("a");
       link.href = resumeUrl;
       link.download = "Esakkipandi_Resume.pdf";
