@@ -18,9 +18,10 @@ const Header = () => {
     }
 
    if (to === "Resume") {
-  const resumeUrl = "/Resume/Esakkipandi.pdf";
+  const resumeUrl = `${window.location.origin}/Resume/Esakkipandi.pdf`;
   window.open(resumeUrl, "_blank"); // opens in new tab
 }
+
 
   };
 
