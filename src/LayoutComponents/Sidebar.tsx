@@ -17,20 +17,11 @@ const Header = () => {
       }
     }
 
-    if (to === "Resume") {
-      const resumeUrl = "/Resume/Esakkipandi.pdf"; // same path as desktop version
-      const link = document.createElement("a");
-      link.href = resumeUrl;
-      link.download = "Esakkipandi_Resume.pdf";
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+   if (to === "Resume") {
+  const resumeUrl = "/Resume/Esakkipandi.pdf";
+  window.open(resumeUrl, "_blank"); // opens in new tab
+}
 
-      // Reset active tab to Home
-      setTimeout(() => {
-        setIsClickedContent("Home");
-      }, 2000);
-    }
   };
 
   // Close sidebar when clicking outside
