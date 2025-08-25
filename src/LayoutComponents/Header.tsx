@@ -22,7 +22,7 @@ const Header = () => {
  if (to === "Resume") {
   setIsMenuOpen(false); // close sidebar if mobile
 
-  const resumeUrl = "/Resume/EsakkiPandi.pdf";
+  const resumeUrl = "/files/EsakkiPandi.pdf";
 
   if (window.innerWidth <= 768) {
     // Mobile: open PDF in new tab
