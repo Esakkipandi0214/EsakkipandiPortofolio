@@ -78,7 +78,7 @@ export default function HeroSection() {
           transition={{ duration: 1, delay: 1 }}
         >
           <h1 className="text-black font-semibold text-3xl sm:text-4xl md:text-5xl">
-            Full Stack Web Developer
+            BackEnd Developer
           </h1>
         </motion.div>
       </motion.div>

@@ -1,45 +1,46 @@
 "use client";
 import dynamic from "next/dynamic"; // Import dynamic
 import { motion } from "framer-motion";
-import { Code, Server, Database, LayoutDashboard, Cloud, Globe } from "lucide-react";
+import { Code, Server, Database, Cloud, Globe } from "lucide-react";
 
 const services = [
-  {
-    title: "Full-Stack Web Development",
-    icon: <Code size={40} className="text-orange-500" />,
-    description:
-      "Building dynamic and scalable web applications using React, Next.js, and Node.js with modern frontend and backend technologies.",
-  },
   {
     title: "Backend Development & APIs",
     icon: <Server size={40} className="text-blue-500" />,
     description:
-      "Developing RESTful & GraphQL APIs with Express.js, ensuring secure authentication and seamless integrations.",
+      "Building secure and scalable backend services with Node.js, Express.js, and Java Spring Boot. Experienced in designing RESTful and GraphQL APIs with authentication, authorization, and third-party integrations.",
   },
   {
     title: "Database Management",
     icon: <Database size={40} className="text-green-500" />,
     description:
-      "Efficiently designing and managing databases using MongoDB, Mongoose, and optimizing queries for better performance.",
+      "Designing and managing relational (PostgreSQL) and NoSQL (MongoDB) databases, with query optimization and data modeling for performance and reliability.",
   },
   {
-    title: "UI/UX & Frontend Development",
-    icon: <LayoutDashboard size={40} className="text-purple-500" />,
+    title: "Microservices & Architecture",
+    icon: <Code size={40} className="text-orange-500" />,
     description:
-      "Creating beautiful, responsive, and interactive UIs with Tailwind CSS, Material UI, and Next.js.",
+      "Implementing clean architecture and microservice-based systems to ensure scalability, maintainability, and seamless system integration.",
   },
   {
-    title: "Deployment Services",
+    title: "Deployment & Monitoring",
     icon: <Cloud size={40} className="text-teal-500" />,
     description:
-      "Deploying applications on Vercel, Netlify and Render for seamless deployment workflows.",
+      "Deploying applications on Render, Docker, and cloud platforms with monitoring and logging using tools like GCP and OpenTelemetry.",
   },
   {
     title: "E-Commerce & Payment Integration",
     icon: <Globe size={40} className="text-yellow-500" />,
     description:
-      "Building e-commerce platforms with Stripe, Razorpay, and PayPal integration for secure transactions.",
+      "Integrating secure payment gateways (Stripe, Razorpay, PayPal) and building e-commerce features with robust backend workflows.",
   },
+  // ,
+  // {
+  //   title: "Frontend (Additional Skill)",
+  //   icon: <LayoutDashboard size={40} className="text-purple-500" />,
+  //   description:
+  //     "Capable of creating responsive UIs with React, Next.js, and Tailwind CSS when required for full-stack development.",
+  // },
 ];
 
 function Services() {
@@ -70,7 +71,9 @@ function Services() {
           transition={{ duration: 1, delay: 0.5 }}
           viewport={{ once: false }}
         >
-          I specialize in full-stack development, backend APIs, UI/UX, and cloud deployment.
+          I specialize in backend development, designing and building robust
+          APIs, managing databases, implementing secure authentication, and
+          deploying scalable applications to the cloud.{" "}
         </motion.p>
 
         <motion.div
@@ -90,7 +93,9 @@ function Services() {
               viewport={{ once: false }}
             >
               {service.icon}
-              <h3 className="mt-4 text-xl font-semibold text-white">{service.title}</h3>
+              <h3 className="mt-4 text-xl font-semibold text-white">
+                {service.title}
+              </h3>
               <p className="mt-2 text-white">{service.description}</p>
             </motion.div>
           ))}

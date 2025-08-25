@@ -8,10 +8,10 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="flex w-full pt-4 bg-[#f6f5f1]">
       {/* Sidebar */}
-      <Sidebar />
 
       {/* Main Content */}
       <div className="flex-1 h-auto w-full overflow-x-hidden flex flex-col">
+        <Sidebar />
         <Header />
         <main className="p-2 w-full overflow-x-hidden h-auto">{children}</main>
         <Footer/>

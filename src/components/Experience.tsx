@@ -5,11 +5,11 @@ import { Calendar, MapPin, Briefcase } from 'lucide-react';
 const Experience = () => {
   const experiences = [
     {
-      title: 'Full Stack Developer',
+      title: 'BackEnd Developer',
       company: 'Digisailor',
       location: 'Tuticorin, India',
       duration: '2024 May - 2025 July',
-      description: 'Leading development of enterprise-level web applications using MERN stack. Mentoring junior developers and implementing best practices for code quality and performance.',
+      description: 'Leading backend development of enterprise-level web applications using Node.js (Express.js) and Java Spring Boot. Designing scalable RESTful APIs, integrating databases (MongoDB, PostgreSQL), and ensuring system performance while mentoring junior developers and enforcing best practices for code quality and architecture.',
       achievements: [
         'Delivered 3 major projects on time, enhancing client satisfaction by 30%',
         'Improved application performance by 40% through optimization',
@@ -112,8 +112,7 @@ const Experience = () => {
               Experience & Education
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              My professional journey and educational background that shaped my expertise in full-stack development.
-            </p>
+              My professional journey and educational background that shaped my expertise in backend development and system integration.            </p>
           </div>
 
           {/* Experience Section */}

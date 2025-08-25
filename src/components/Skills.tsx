@@ -1,14 +1,33 @@
 
 import React from 'react';
-import { Code, Database, Server, Globe } from 'lucide-react';
+import { Database, Server, Globe } from 'lucide-react';
 
 const About = () => {
   const skills = {
-    frontend: ['JavaScript (ES6+)', 'React.js', 'Next.js', 'TypeScript', 'Tailwind CSS', 'HTML5/CSS3'],
-    backend: ['Node.js', 'Express.js', 'RESTful APIs', 'JWT Authentication'],
-    database: ['MongoDB', 'MySQL', 'PostgreSQL'],
-    tools: ['Git', 'Vercel', 'Postman', 'VS Code']
-  };
+  backend: [
+    'Node.js',
+    'Express.js',
+    'Java Spring Boot',
+    'RESTful APIs',
+    'Microservices',
+    'JWT Authentication'
+  ],
+  database: [
+    'PostgreSQL',
+    'MongoDB',
+    'MySQL',
+    'Prisma'
+  ],
+  tools: [
+    'Git',
+    'Docker',
+    'Postman',
+    'VS Code',
+    'Google Cloud Platform (GCP)',
+    'OpenTelemetry'
+  ]
+};
+
 
   interface SkillCardProps {
     icon: React.ElementType;
@@ -47,13 +66,8 @@ const About = () => {
         <div className="max-w-6xl mx-auto">
 
           {/* Skills Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <SkillCard
-              icon={Code}
-              title="Frontend"
-              skillList={skills.frontend}
-              delay={0}
-            />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
             <SkillCard
               icon={Server}
               title="Backend"

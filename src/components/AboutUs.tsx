@@ -37,11 +37,7 @@ export default function AboutUs() {
           About
         </h1>
         <p className="text-white text-base md:text-lg leading-relaxed text-justify max-w-lg md:max-w-max">
-          I am <span className="font-bold">EsakkiPandi</span>, a MERN Stack Developer. I have completed my Undergraduate and Postgraduate degrees in both BCA and MCA. 
-          I specialize in building scalable web applications, designing interactive user interfaces, and optimizing backend performance. 
-          With a strong passion for coding, I continuously explore new technologies to enhance my development skills. 
-          My expertise includes working with modern JavaScript frameworks, managing databases efficiently, and implementing secure authentication systems.
-        </p>
+          I am <span className="font-bold">EsakkiPandi</span>, a Backend Developer with a strong academic foundation in Computer Applications (BCA and MCA). I specialize in building scalable web applications, designing and integrating RESTful APIs, and optimizing backend performance. With expertise in Node.js, Express.js, Java Spring Boot, MongoDB, and PostgreSQL, I have hands-on experience in database management and implementing secure authentication systems. Passionate about system design and clean architecture, I continuously explore new technologies to enhance backend efficiency and scalability.        </p>
       </motion.div>
     </motion.div>
   );
