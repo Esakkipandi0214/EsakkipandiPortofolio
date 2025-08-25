@@ -17,10 +17,20 @@ const Header = () => {
       }
     }
 
-   if (to === "Resume") {
-  const resumeUrl = `${window.location.origin}/Resume/Esakkipandi.pdf`;
-  window.open(resumeUrl, "_blank"); // opens in new tab
-}
+    if (to === "Resume") {
+      const resumeUrl = "/Resume/EsakkiPandi.pdf";
+      const link = document.createElement("a");
+      link.href = resumeUrl;
+      link.download = "Esakkipandi_Resume.pdf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      // Set Home after 2 seconds
+      setTimeout(() => {
+        setIsClickedContent("Home");
+      }, 2000);
+    }
 
 
   };
@@ -55,10 +65,8 @@ const Header = () => {
             <FaBars className="text-black" size={24} />
           )}
         </button>
-      </header>
 
-      {/* Full-screen Sidebar for Mobile */}
-      <div
+         <div
         id="sidebar"
         className={`fixed top-0 left-0 h-full w-full bg-gray-900 text-white flex flex-col items-center justify-center transform ${
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
@@ -91,6 +99,10 @@ const Header = () => {
           ))}
         </nav>
       </div>
+      </header>
+
+      {/* Full-screen Sidebar for Mobile */}
+     
     </>
   );
 };
