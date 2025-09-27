@@ -8,27 +8,7 @@ import PrivateChat from '../../public/ProjectsImage/PrivateChat.png';
 import Todo from '../../public/ProjectsImage/Todo.jpg';
 
 const projects = [
-  {
-    id: 2,
-    title: "Travel App",
-    description:
-      "PAPPUTRAVELS is a smart travel app that helps users discover destinations and pre-defined packages with place descriptions.",
-    image: TravelApp,
-    technologies: ["Next.js", "MongoDB", "Node.js", "Tailwind", "TypeScript"],
-    liveDemo: "https://papputravels.vercel.app/",
-    github: "https://github.com/Esakkipandi0214/PAPPUTRAVELS.git",
-  },
-  {
-    id: 3,
-    title: "FileEncryptor App",
-    description:
-      "Online file encryption tool allowing users to encrypt/decrypt files using AES-256. Secure, fast, and with password protection.",
-    image: FileEncrypter,
-    technologies: ["Next.js"],
-    liveDemo: "https://file-encryptor-mu.vercel.app/",
-    github: "https://github.com/Esakkipandi0214/FileEncryptor.git",
-  },
-  {
+   {
     id: 4,
     title: "Private Chat App",
     description:
@@ -48,6 +28,26 @@ const projects = [
     liveDemo: "https://agenda-verse-build.vercel.app",
     github: "https://github.com/Esakkipandi0214/agenda-verse-build.git",
   },
+  {
+    id: 3,
+    title: "FileEncryptor App",
+    description:
+      "Online file encryption tool allowing users to encrypt/decrypt files using AES-256. Secure, fast, and with password protection.",
+    image: FileEncrypter,
+    technologies: ["Next.js"],
+    liveDemo: "https://file-encryptor-mu.vercel.app/",
+    github: "https://github.com/Esakkipandi0214/FileEncryptor.git",
+  },
+   {
+    id: 2,
+    title: "Travel App",
+    description:
+      "PAPPUTRAVELS is a smart travel app that helps users discover destinations and pre-defined packages with place descriptions.",
+    image: TravelApp,
+    technologies: ["Next.js", "MongoDB", "Node.js", "Tailwind", "TypeScript"],
+    liveDemo: "https://papputravels.vercel.app/",
+    github: "https://github.com/Esakkipandi0214/PAPPUTRAVELS.git",
+  }
 ];
 
 const Projects = () => {
