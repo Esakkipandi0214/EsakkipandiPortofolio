@@ -1,61 +1,66 @@
 "use client";
-import dynamic from "next/dynamic"; // Import dynamic
+import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
-import { Code, Server, Database, Cloud, Globe } from "lucide-react";
+import { Code, Server, Database, Cloud, Globe, LayoutDashboard, BookOpen } from "lucide-react";
 
 const services = [
   {
     title: "Backend Development & APIs",
     icon: <Server size={40} className="text-blue-500" />,
     description:
-      "Building secure and scalable backend services with Node.js, Express.js, and Java Spring Boot. Experienced in designing RESTful and GraphQL APIs with authentication, authorization, and third-party integrations.",
+      "Building scalable and secure backend services using Node.js and Express.js, designing RESTful and GraphQL APIs, with authentication, authorization, and third-party integrations.",
   },
   {
-    title: "Database Management",
+    title: "Database Management (MongoDB)",
     icon: <Database size={40} className="text-green-500" />,
     description:
-      "Designing and managing relational (PostgreSQL) and NoSQL (MongoDB) databases, with query optimization and data modeling for performance and reliability.",
+      "Designing and managing MongoDB databases, optimizing queries, modeling data efficiently, and ensuring high performance and reliability.",
   },
   {
-    title: "Microservices & Architecture",
+    title: "Frontend Development (React & Next.js)",
+    icon: <LayoutDashboard size={40} className="text-purple-500" />,
+    description:
+      "Creating responsive, dynamic, and user-friendly interfaces using React and Next.js with Tailwind CSS, and integrating frontend with backend APIs.",
+  },
+  {
+    title: "Full-Stack Integration",
     icon: <Code size={40} className="text-orange-500" />,
     description:
-      "Implementing clean architecture and microservice-based systems to ensure scalability, maintainability, and seamless system integration.",
+      "Implementing full-stack applications using the MERN stack (MongoDB, Express, React, Node.js), ensuring seamless communication between frontend and backend.",
   },
   {
-    title: "Deployment & Monitoring",
+    title: "Deployment & Cloud",
     icon: <Cloud size={40} className="text-teal-500" />,
     description:
-      "Deploying applications on Render, Docker, and cloud platforms with monitoring and logging using tools like GCP and OpenTelemetry.",
+      "Deploying full-stack applications on cloud platforms like Render, Vercel, and AWS. Setting up CI/CD pipelines, monitoring, and logging for production-ready apps.",
   },
   {
     title: "E-Commerce & Payment Integration",
     icon: <Globe size={40} className="text-yellow-500" />,
     description:
-      "Integrating secure payment gateways (Stripe, Razorpay, PayPal) and building e-commerce features with robust backend workflows.",
+      "Integrating secure payment gateways (Stripe, PayPal, Razorpay) and building e-commerce features with robust backend workflows and React frontend components.",
   },
-  // ,
-  // {
-  //   title: "Frontend (Additional Skill)",
-  //   icon: <LayoutDashboard size={40} className="text-purple-500" />,
-  //   description:
-  //     "Capable of creating responsive UIs with React, Next.js, and Tailwind CSS when required for full-stack development.",
-  // },
+  {
+    title: "Full-Stack Development Training",
+    icon: <BookOpen size={40} className="text-pink-500" />,
+    description:
+      "Teaching MERN stack development through structured courses and hands-on projects, covering backend, frontend, database management, and deployment best practices.",
+  },
 ];
 
 function Services() {
   return (
     <motion.section
       id="Service"
-      className="py-12 px-6 bg-[#f6f5f1]"
+      className="py-12 px-6 bg-black/50 rounded-3xl my-1 "
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, ease: "easeOut" }}
-      viewport={{ once: false, amount: 0.2 }} // `amount: 0.2` ensures animation triggers when 20% is in view
+      viewport={{ once: false, amount: 0.2 }}
     >
       <div className="max-w-6xl mx-auto text-center">
         <motion.h2
-          className="text-4xl font-bold text-gray-800"
+          className="text-4xl font-bold text-white"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
@@ -65,15 +70,13 @@ function Services() {
         </motion.h2>
 
         <motion.p
-          className="text-gray-600 mt-3"
+          className="text-white/90 mt-3"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
           viewport={{ once: false }}
         >
-          I specialize in backend development, designing and building robust
-          APIs, managing databases, implementing secure authentication, and
-          deploying scalable applications to the cloud.{" "}
+          I specialize in MERN stack development: building full-stack applications, managing MongoDB databases, developing dynamic React interfaces, integrating secure APIs, deploying scalable applications to the cloud, and mentoring others in full-stack development.
         </motion.p>
 
         <motion.div
@@ -105,5 +108,4 @@ function Services() {
   );
 }
 
-// ✅ Wrap with dynamic to prevent SSR issues
 export default dynamic(() => Promise.resolve(Services), { ssr: false });

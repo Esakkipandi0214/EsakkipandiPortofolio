@@ -11,7 +11,7 @@ import Skills from '@/components/Skills'
 const index = () => {
   return (
     <Layout>
-      <div className='bg-[#f6f5f1] h-auto  w-full'>
+      <div className='bg-[#4B0082] h-auto  w-full' >
         <HeroSection/>
         <AboutUs/>
         <Services/>
