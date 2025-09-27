@@ -6,10 +6,12 @@ import TravelApp from '../../public/ProjectsImage/Traveling.png';
 import FileEncrypter from '../../public/ProjectsImage/FileEncrypter.png';
 import PrivateChat from '../../public/ProjectsImage/PrivateChat.png';
 import Todo from '../../public/ProjectsImage/Todo.jpg';
+import OnlineCourse from '../../public/ProjectsImage/OnlineCourse.png'
+import ZendraPage from '../../public/ProjectsImage/ZendraPage.png'
 
 const projects = [
    {
-    id: 4,
+    id: 1,
     title: "Private Chat App",
     description:
       "Full-stack MERN private chat app with end-to-end encryption, real-time messaging, and a user-friendly interface.",
@@ -19,7 +21,27 @@ const projects = [
     github: "https://github.com/Esakkipandi0214/shadow-console-chat.git",
   },
   {
-    id: 5,
+  id: 2,
+  title: "Online Course Portal",
+  description:
+    "Full-stack online course platform with React and Supabase. Users can register, enroll in courses, access curriculum, track progress, and interact with course content. Features secure authentication and a responsive UI.",
+  image: OnlineCourse, // Replace with relevant course portal image
+  technologies: ["React", "Supabase", "Tailwind", "TypeScript"],
+  liveDemo: "https://dev-course-flax.vercel.app/", // Replace with actual live URL
+  github: "https://github.com/Esakkipandi0214/DevCourse.git",
+},
+ {
+  id: 3,
+  title: "Stock Landing Page",
+  description:
+    "Responsive stock landing page built with Next.js and Framer Motion. Features smooth animations, interactive UI, and showcases stock market data with a modern design.",
+  image: ZendraPage, // Replace with relevant stock landing page image
+  technologies: ["Next.js", "Framer Motion", "Tailwind", "TypeScript"],
+  liveDemo: "https://zentra.vercel.app/", // Replace with actual live URL
+  github: "https://github.com/Esakkipandi0214/ZENTRA.git",
+},
+  {
+    id: 4,
     title: "Todo App",
     description:
       "Full-stack MERN todo app with authentication, task creation, tagging, filtering by status, and real-time updates.",
@@ -29,7 +51,7 @@ const projects = [
     github: "https://github.com/Esakkipandi0214/agenda-verse-build.git",
   },
   {
-    id: 3,
+    id: 5,
     title: "FileEncryptor App",
     description:
       "Online file encryption tool allowing users to encrypt/decrypt files using AES-256. Secure, fast, and with password protection.",
@@ -39,7 +61,7 @@ const projects = [
     github: "https://github.com/Esakkipandi0214/FileEncryptor.git",
   },
    {
-    id: 2,
+    id: 6,
     title: "Travel App",
     description:
       "PAPPUTRAVELS is a smart travel app that helps users discover destinations and pre-defined packages with place descriptions.",
