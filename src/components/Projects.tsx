@@ -8,6 +8,7 @@ import PrivateChat from '../../public/ProjectsImage/PrivateChat.png';
 import Todo from '../../public/ProjectsImage/Todo.jpg';
 import OnlineCourse from '../../public/ProjectsImage/OnlineCourse.png'
 import ZendraPage from '../../public/ProjectsImage/ZendraPage.png'
+import MonayManger from '../../public/ProjectsImage/MoneyManager.png'
 
 const projects = [
    {
@@ -40,8 +41,18 @@ const projects = [
   liveDemo: "https://zentra.vercel.app/", // Replace with actual live URL
   github: "https://github.com/Esakkipandi0214/ZENTRA.git",
 },
+ {
+  id: 4,
+  title: "Personal Money Manager",
+  description:
+    "Manage your personal finances with ease. Track expenses, plan budgets, and monitor spending. Built with React, Tailwind, Express, PostgreSQL, and Prisma.",
+  image: MonayManger, // Replace with relevant project screenshot/image
+  technologies: ["React", "Tailwind", "Express", "PostgreSQL", "Prisma"],
+  liveDemo: "https://flow-savvy-freelancer.vercel.app/", // Replace with actual live URL
+  github: "https://github.com/Esakkipandi0214/flow-savvy-freelancer.git",
+},
   {
-    id: 4,
+    id: 5,
     title: "Todo App",
     description:
       "Full-stack MERN todo app with authentication, task creation, tagging, filtering by status, and real-time updates.",
@@ -51,7 +62,7 @@ const projects = [
     github: "https://github.com/Esakkipandi0214/agenda-verse-build.git",
   },
   {
-    id: 5,
+    id: 6,
     title: "FileEncryptor App",
     description:
       "Online file encryption tool allowing users to encrypt/decrypt files using AES-256. Secure, fast, and with password protection.",
@@ -61,7 +72,7 @@ const projects = [
     github: "https://github.com/Esakkipandi0214/FileEncryptor.git",
   },
    {
-    id: 6,
+    id: 7,
     title: "Travel App",
     description:
       "PAPPUTRAVELS is a smart travel app that helps users discover destinations and pre-defined packages with place descriptions.",
