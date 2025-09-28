@@ -9,6 +9,7 @@ import Todo from '../../public/ProjectsImage/Todo.jpg';
 import OnlineCourse from '../../public/ProjectsImage/OnlineCourse.png'
 import ZendraPage from '../../public/ProjectsImage/ZendraPage.png'
 import MonayManger from '../../public/ProjectsImage/MoneyManager.png'
+import Restaurent from '../../public/ProjectsImage/RestaurentApp.png'
 
 const projects = [
    {
@@ -31,7 +32,7 @@ const projects = [
   liveDemo: "https://dev-course-flax.vercel.app/", // Replace with actual live URL
   github: "https://github.com/Esakkipandi0214/DevCourse.git",
 },
- {
+{
   id: 3,
   title: "Stock Landing Page",
   description:
@@ -43,6 +44,16 @@ const projects = [
 },
  {
   id: 4,
+  title: "Restaurant Management App",
+  description:
+    "A full-featured restaurant management app built with React.js, TypeScript, and Firebase. Supports role-based access for Admin, Waiter, and Chef. Users can place orders on a separate page. Includes real-time order updates and an interactive UI.",
+  image: Restaurent, // Replace with a relevant restaurant app image
+  technologies: ["React.js", "Firebase", "Tailwind CSS", "TypeScript"],
+  liveDemo: "https://restarent-app.vercel.app", // Actual live URL
+  github: "https://github.com/Esakkipandi0214/RestarentApp.git",
+},
+ {
+  id: 5,
   title: "Personal Money Manager",
   description:
     "Manage your personal finances with ease. Track expenses, plan budgets, and monitor spending. Built with React, Tailwind, Express, PostgreSQL, and Prisma.",
@@ -52,7 +63,7 @@ const projects = [
   github: "https://github.com/Esakkipandi0214/flow-savvy-freelancer.git",
 },
   {
-    id: 5,
+    id: 6,
     title: "Todo App",
     description:
       "Full-stack MERN todo app with authentication, task creation, tagging, filtering by status, and real-time updates.",
@@ -62,7 +73,7 @@ const projects = [
     github: "https://github.com/Esakkipandi0214/agenda-verse-build.git",
   },
   {
-    id: 6,
+    id: 7,
     title: "FileEncryptor App",
     description:
       "Online file encryption tool allowing users to encrypt/decrypt files using AES-256. Secure, fast, and with password protection.",
@@ -72,7 +83,7 @@ const projects = [
     github: "https://github.com/Esakkipandi0214/FileEncryptor.git",
   },
    {
-    id: 7,
+    id: 8,
     title: "Travel App",
     description:
       "PAPPUTRAVELS is a smart travel app that helps users discover destinations and pre-defined packages with place descriptions.",
