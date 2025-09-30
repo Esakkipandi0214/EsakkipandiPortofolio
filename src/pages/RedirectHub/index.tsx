@@ -120,9 +120,9 @@ const RedirectHub = () => {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex flex-col items-start gap-1 w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold py-3 px-4 rounded-xl hover:from-indigo-700 hover:to-purple-700 transition shadow-md"
+                    className="flex  items-start gap-3 w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold py-3 px-4 rounded-xl hover:from-indigo-700 hover:to-purple-700 transition shadow-md"
                   >
-                    <div className="flex items-center gap-3">
+                    <div className="flex pt-1 items-center justify-center gap-3">
                       <Image
                         src={project.logo}
                         alt={`${project.name} logo`}
@@ -130,11 +130,13 @@ const RedirectHub = () => {
                         height={24}
                         className="object-contain rounded"
                       />
-                      <span>{project.name}</span>
                     </div>
-                    <span className="text-sm font-normal opacity-80 ml-9">
+                    <div className='flex justify-start items-start flex-col'>
+                    <span>{project.name}</span>
+                    <span className="text-sm font-normal opacity-80">
                       {project.company}
                     </span>
+                    </div>
                   </a>
                 ))}
               </div>
