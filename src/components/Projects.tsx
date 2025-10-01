@@ -10,6 +10,7 @@ import OnlineCourse from '../../public/ProjectsImage/OnlineCourse.png'
 import ZendraPage from '../../public/ProjectsImage/ZendraPage.png'
 import MonayManger from '../../public/ProjectsImage/MoneyManager.png'
 import Restaurent from '../../public/ProjectsImage/RestaurentApp.png'
+import BuddyTemplate from '../../public/ProjectsImage/BuddyTemplate.png'
 
 const projects = [
    {
@@ -52,8 +53,19 @@ const projects = [
   liveDemo: "https://restarent-app.vercel.app", // Actual live URL
   github: "https://github.com/Esakkipandi0214/RestarentApp.git",
 },
- {
+{
   id: 5,
+  title: "Docs Manager (Buddy)",
+  description:
+    "Buddy is a web app for managing documents and schedules. It supports uploading and organizing files like PDF, Word, and Excel, along with task scheduling using a calendar. Built with React.js, TypeScript, and Firebase, it provides a clean UI for easy file access and productivity management.",
+  image: BuddyTemplate, // Replace with a relevant file manager/calendar app image
+  technologies: ["Next.js", "Firebase", "Tailwind CSS", "TypeScript"],
+  liveDemo: "https://buddy-lac.vercel.app", // Actual live URL
+  github: "https://github.com/Esakkipandi0214/Buddy.git",
+}
+,
+ {
+  id: 6,
   title: "Personal Money Manager",
   description:
     "Manage your personal finances with ease. Track expenses, plan budgets, and monitor spending. Built with React, Tailwind, Express, PostgreSQL, and Prisma.",
@@ -63,7 +75,7 @@ const projects = [
   github: "https://github.com/Esakkipandi0214/flow-savvy-freelancer.git",
 },
   {
-    id: 6,
+    id: 7,
     title: "Todo App",
     description:
       "Full-stack MERN todo app with authentication, task creation, tagging, filtering by status, and real-time updates.",
@@ -73,7 +85,7 @@ const projects = [
     github: "https://github.com/Esakkipandi0214/agenda-verse-build.git",
   },
   {
-    id: 7,
+    id: 8,
     title: "FileEncryptor App",
     description:
       "Online file encryption tool allowing users to encrypt/decrypt files using AES-256. Secure, fast, and with password protection.",
@@ -83,7 +95,7 @@ const projects = [
     github: "https://github.com/Esakkipandi0214/FileEncryptor.git",
   },
    {
-    id: 8,
+    id: 9,
     title: "Travel App",
     description:
       "PAPPUTRAVELS is a smart travel app that helps users discover destinations and pre-defined packages with place descriptions.",
