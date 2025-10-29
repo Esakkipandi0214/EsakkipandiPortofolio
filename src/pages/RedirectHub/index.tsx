@@ -82,7 +82,7 @@ const RedirectHub = () => {
         <p className="text-gray-500 mb-8">MERN Stack Developer</p>
 
         {/* Social & Project Links */}
-        <div className="flex justify-center gap-5 sm:gap-6 relative flex-wrap">
+        <div className="flex justify-center gap-3  vs:gap-5 sm:gap-6 relative flex-wrap">
           {links.map((item) => (
             <div
               key={item.id}
