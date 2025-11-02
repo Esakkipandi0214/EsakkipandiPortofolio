@@ -10,3 +10,62 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+@keyframes fadeInLine {
+  0% {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cursor {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* === Sequential Line Appearance === */
+.animate-type-line1 {
+  animation: fadeInLine 0.6s ease forwards;
+  animation-delay: 0.5s;
+}
+
+.animate-type-line2 {
+  animation: fadeInLine 0.6s ease forwards;
+  animation-delay: 1.5s;
+}
+
+.animate-type-line3 {
+  animation: fadeInLine 0.6s ease forwards;
+  animation-delay: 2.5s;
+}
+
+.animate-type-line4 {
+  animation: fadeInLine 0.6s ease forwards;
+  animation-delay: 3.5s;
+}
+
+/* Cursor appears last */
+.animate-show-cursor {
+  animation: fadeInLine 0.6s ease forwards, cursor 0.8s infinite;
+  animation-delay: 4.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
