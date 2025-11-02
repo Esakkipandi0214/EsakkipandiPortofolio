@@ -4,11 +4,19 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import ANZLogo from "../../../public/ProjectsImage/ClientProjects/ANZLogo.jpg";
 import AldaleelaLogo from "../../../public/ProjectsImage/ClientProjects/AldaleelaLogo.png";
+import AppLoader from "@/components/Loader";
+import { useRouter } from "next/router";
 
 const RedirectHub = () => {
   const [showProjects, setShowProjects] = useState(false);
   const [activeTooltip, setActiveTooltip] = useState<string | null>(null);
   const tooltipRefs = useRef<Record<string, HTMLDivElement | null>>({});
+  const router = useRouter()
+   const [loading, setLoading] = useState(true);
+    useEffect(() => {
+      const timer = setTimeout(() => setLoading(false), 5000);
+      return () => clearTimeout(timer);
+    }, []);
 
   const projects = [
     {
@@ -31,7 +39,7 @@ const RedirectHub = () => {
       icon: <Globe className="w-5 h-5 sm:w-6 sm:h-6" />,
       color: "bg-indigo-600 hover:bg-indigo-700",
       text: "Portfolio",
-      href: "https://esakkipandi-portofolio.vercel.app",
+      href: "/",
     },
     {
       id: "github",
@@ -73,6 +81,8 @@ const RedirectHub = () => {
     };
   }, [activeTooltip]);
 
+  if(loading) return <AppLoader/>
+
   return (
     <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 p-6">
       <div className="bg-white shadow-2xl rounded-3xl p-10 max-w-sm w-full text-center transform transition duration-500 hover:scale-105">
@@ -110,7 +120,8 @@ const RedirectHub = () => {
                     className="absolute -top-12 z-30"
                     onClick={(e) => {
                       e.stopPropagation();
-                      window.open(item.href, "_blank");
+                     if(item.id === 'portfolio'){router.push(item.href)}
+                     else{ window.open(item.href, "_blank");}
                       setActiveTooltip(null);
                     }}
                   >
