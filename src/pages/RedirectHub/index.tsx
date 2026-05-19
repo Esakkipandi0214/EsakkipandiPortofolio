@@ -57,8 +57,8 @@ const RedirectHub = () => {
     },
   ];
 
-  const handleTooltip = (id: string) => {
-    setActiveTooltip((prev) => (prev === id ? null : id));
+  const handleTooltip = (id: string | null) => {
+    setActiveTooltip(() => ( !id ? null : id));
   };
 
   // ✅ Detect click outside tooltip or button
@@ -100,10 +100,20 @@ const RedirectHub = () => {
               ref={(el) => {tooltipRefs.current[item.id] = el}}
             >
               <button
-                onClick={(e) => {
+                onMouseEnter={(e) => {
                   e.stopPropagation(); // prevent closing when clicking button
                   handleTooltip(item.id);
                 }}
+                onMouseLeave={(e) => {
+                  e.stopPropagation(); // prevent closing when clicking button
+                  handleTooltip(null);
+                }}
+                 onClick={(e) => {
+                      e.stopPropagation();
+                     if(item.id === 'portfolio'){router.push(item.href)}
+                     else{ window.open(item.href, "_blank");}
+                      setActiveTooltip(null);
+                    }}
                 className={`flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 ${item.color} text-white rounded-full hover:scale-110 transition-transform duration-300 shadow-md`}
               >
                 {item.icon}
@@ -118,12 +128,12 @@ const RedirectHub = () => {
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.2 }}
                     className="absolute -top-12 z-30"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                     if(item.id === 'portfolio'){router.push(item.href)}
-                     else{ window.open(item.href, "_blank");}
-                      setActiveTooltip(null);
-                    }}
+                    // onClick={(e) => {
+                    //   e.stopPropagation();
+                    //  if(item.id === 'portfolio'){router.push(item.href)}
+                    //  else{ window.open(item.href, "_blank");}
+                    //   setActiveTooltip(null);
+                    // }}
                   >
                     <div className="relative bg-gray-900 text-white text-sm font-medium rounded-md px-3 py-1.5 shadow-lg whitespace-nowrap cursor-pointer">
                       {item.text}
@@ -150,10 +160,19 @@ const RedirectHub = () => {
             ref={(el) => {tooltipRefs.current["projects"] = el}}
           >
             <button
-              onClick={(e) => {
+              onMouseEnter={(e) => {
                 e.stopPropagation();
                 handleTooltip("projects");
               }}
+              onMouseLeave={(e) => {
+                e.stopPropagation();
+                handleTooltip(null);
+              }}
+                onClick={(e) => {
+                    e.stopPropagation();
+                    setShowProjects(true);
+                    setActiveTooltip(null);
+                  }}
               className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-green-600 text-white rounded-full hover:bg-green-700 hover:scale-110 transition-transform duration-300 shadow-md"
             >
               <FolderKanban className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -168,11 +187,11 @@ const RedirectHub = () => {
                   exit={{ opacity: 0, y: 10 }}
                   transition={{ duration: 0.2 }}
                   className="absolute -top-12 z-30"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setShowProjects(true);
-                    setActiveTooltip(null);
-                  }}
+                  // onClick={(e) => {
+                  //   e.stopPropagation();
+                  //   setShowProjects(true);
+                  //   setActiveTooltip(null);
+                  // }}
                 >
                   <div className="relative bg-gray-900 text-white text-sm font-medium rounded-md px-3 py-1.5 shadow-lg whitespace-nowrap cursor-pointer">
                     Key Projects
