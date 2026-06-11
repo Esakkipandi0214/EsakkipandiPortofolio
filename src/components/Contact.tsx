@@ -66,78 +66,106 @@ const Contact = () => {
     <section
       ref={formRef}
       id="Contact"
-      className={` w-full mt-1 px-6 py-16 md:py-20 transition-all duration-1000 flex flex-col lg:flex-row gap-10 bg-gray-50 dark:bg-gray-900 rounded-xl shadow-xl transform ${
+      className={`w-full bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 transition-all duration-1000 transform ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
     >
-      {/* Left Image & Info */}
-      <div className="lg:w-1/2 flex flex-col justify-center text-center lg:text-left">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
-          Let&apos;s Connect
-        </h2>
-        <p className="mt-4 text-gray-600 dark:text-gray-300 text-lg">
-          We&apos;d love to hear from you! Fill out the form and we’ll get back to you as soon as possible.
-        </p>
-        <div className="mt-8 w-full max-w-md mx-auto lg:mx-0">
-          <Image src={ContactUs} alt="Contact Illustration" className="w-full rounded-xl" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 md:py-20 lg:py-24">
+        <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 md:gap-10 lg:gap-12">
+          {/* Left Image & Info */}
+          <div className="w-full lg:w-1/2 flex flex-col justify-center">
+            <div className="text-center lg:text-left mb-6 sm:mb-8">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 dark:text-white tracking-tight leading-tight">
+                Let&apos;s Connect
+              </h2>
+              <p className="mt-3 sm:mt-4 md:mt-6 text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
+                We&apos;d love to hear from you! Fill out the form and we&apos;ll get back to you as soon as possible.
+              </p>
+            </div>
+
+            <div className="mt-6 sm:mt-8 md:mt-10 lg:mt-12 w-full">
+              <div className="relative w-full max-w-md mx-auto lg:mx-0 h-64 sm:h-72 md:h-80 lg:h-96">
+                <Image 
+                  src={ContactUs} 
+                  alt="Contact Illustration" 
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Form */}
+          <form 
+            onSubmit={handleSubmit} 
+            className="w-full lg:w-1/2 space-y-5 sm:space-y-6 bg-white dark:bg-gray-800 p-6 sm:p-8 md:p-10 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300"
+          >
+            <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
+
+            <div className="flex flex-col">
+              <label htmlFor="name" className="mb-2 font-semibold text-sm sm:text-base text-gray-700 dark:text-gray-200">
+                Full Name
+              </label>
+              <input
+                id="name"
+                type="text"
+                placeholder="John Doe"
+                value={formData.name}
+                onChange={handleChange}
+                className="px-4 sm:px-5 py-3 sm:py-4 text-sm sm:text-base rounded-lg border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:ring-2 focus:ring-orange-500 focus:border-transparent focus:outline-none shadow-sm transition duration-200"
+              />
+              {errors.name && <span className="text-red-500 mt-2 text-xs sm:text-sm font-medium">{errors.name}</span>}
+            </div>
+
+            <div className="flex flex-col">
+              <label htmlFor="email" className="mb-2 font-semibold text-sm sm:text-base text-gray-700 dark:text-gray-200">
+                Email Address
+              </label>
+              <input
+                id="email"
+                type="email"
+                placeholder="your.email@example.com"
+                value={formData.email}
+                onChange={handleChange}
+                className="px-4 sm:px-5 py-3 sm:py-4 text-sm sm:text-base rounded-lg border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:ring-2 focus:ring-orange-500 focus:border-transparent focus:outline-none shadow-sm transition duration-200"
+              />
+              {errors.email && <span className="text-red-500 mt-2 text-xs sm:text-sm font-medium">{errors.email}</span>}
+            </div>
+
+            <div className="flex flex-col">
+              <label htmlFor="message" className="mb-2 font-semibold text-sm sm:text-base text-gray-700 dark:text-gray-200">
+                Message
+              </label>
+              <textarea
+                id="message"
+                rows={5}
+                placeholder="Type your message here..."
+                value={formData.message}
+                onChange={handleChange}
+                className="px-4 sm:px-5 py-3 sm:py-4 text-sm sm:text-base rounded-lg border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:ring-2 focus:ring-orange-500 focus:border-transparent focus:outline-none shadow-sm transition duration-200 resize-none"
+              ></textarea>
+              {errors.message && <span className="text-red-500 mt-2 text-xs sm:text-sm font-medium">{errors.message}</span>}
+            </div>
+
+            <button
+              type="submit"
+              className="w-full py-3 sm:py-4 px-4 text-base sm:text-lg font-semibold bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white rounded-lg shadow-md hover:shadow-xl transform transition duration-300 hover:scale-105 active:scale-95"
+            >
+              Send Message
+            </button>
+
+            {status.message && (
+              <div className={`mt-4 p-4 rounded-lg text-center text-sm sm:text-base font-medium transition duration-300 ${
+                status.type === "success" 
+                  ? "bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-200" 
+                  : "bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-200"
+              }`}>
+                {status.message}
+              </div>
+            )}
+          </form>
         </div>
       </div>
-
-      {/* Form */}
-      <form onSubmit={handleSubmit} className="lg:w-1/2 space-y-6 bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg">
-        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
-
-        <div className="flex flex-col">
-          <label htmlFor="name" className="mb-2 font-medium text-gray-700 dark:text-gray-200">Full Name</label>
-          <input
-            id="name"
-            type="text"
-            value={formData.name}
-            onChange={handleChange}
-            className="p-4 rounded-lg border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-gradient-to-r focus:ring-orange-500 focus:outline-none shadow-sm transition"
-          />
-          {errors.name && <span className="text-red-500 mt-1 text-sm">{errors.name}</span>}
-        </div>
-
-        <div className="flex flex-col">
-          <label htmlFor="email" className="mb-2 font-medium text-gray-700 dark:text-gray-200">Email</label>
-          <input
-            id="email"
-            type="email"
-            value={formData.email}
-            onChange={handleChange}
-            className="p-4 rounded-lg border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-gradient-to-r focus:ring-orange-500 focus:outline-none shadow-sm transition"
-          />
-          {errors.email && <span className="text-red-500 mt-1 text-sm">{errors.email}</span>}
-        </div>
-
-        <div className="flex flex-col">
-          <label htmlFor="message" className="mb-2 font-medium text-gray-700 dark:text-gray-200">Message</label>
-          <textarea
-            id="message"
-            rows={5}
-            value={formData.message}
-            onChange={handleChange}
-            className="p-4 rounded-lg border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-gradient-to-r focus:ring-orange-500 focus:outline-none shadow-sm transition resize-none"
-          ></textarea>
-          {errors.message && <span className="text-red-500 mt-1 text-sm">{errors.message}</span>}
-        </div>
-
-        <button
-          type="submit"
-          className="w-full py-4 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-semibold rounded-lg shadow-md hover:shadow-xl transform transition duration-300 hover:scale-105"
-        >
-          Send Message
-        </button>
-
-        {status.message && (
-          <p className={`mt-3 text-center text-sm font-medium ${
-            status.type === "success" ? "text-green-600" : "text-red-600"
-          }`}>
-            {status.message}
-          </p>
-        )}
-      </form>
     </section>
   );
 };

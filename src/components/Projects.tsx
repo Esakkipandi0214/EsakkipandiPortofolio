@@ -1,16 +1,104 @@
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import { FiGithub, FiExternalLink } from "react-icons/fi";
 
-import TravelApp from '../../public/ProjectsImage/Traveling.png';
+// import TravelApp from '../../public/ProjectsImage/Traveling.png';
 import FileEncrypter from '../../public/ProjectsImage/FileEncrypter.png';
 import PrivateChat from '../../public/ProjectsImage/PrivateChat.png';
 import Todo from '../../public/ProjectsImage/Todo.jpg';
-import OnlineCourse from '../../public/ProjectsImage/OnlineCourse.png'
+// import OnlineCourse from '../../public/ProjectsImage/OnlineCourse.png'
 import ZendraPage from '../../public/ProjectsImage/ZendraPage.png'
-import MonayManger from '../../public/ProjectsImage/MoneyManager.png'
+// import MonayManger from '../../public/ProjectsImage/MoneyManager.png'
 import Restaurent from '../../public/ProjectsImage/RestaurentApp.png'
-import BuddyTemplate from '../../public/ProjectsImage/BuddyTemplate.png'
+// import BuddyTemplate from '../../public/ProjectsImage/BuddyTemplate.png'
+
+// Skeleton Loader Component
+const ImageSkeleton = () => (
+  <div className="absolute inset-0 bg-gradient-to-r from-gray-700 via-gray-600 to-gray-700 animate-pulse">
+    <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent)] animate-shimmer"></div>
+  </div>
+);
+
+// Project Card Component with Lazy Loading
+const ProjectCard = ({ project }: { project: typeof projects[0] }) => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(false);
+
+  const handleImageLoad = () => {
+    setIsLoading(false);
+  };
+
+  const handleImageError = () => {
+    setError(true);
+    setIsLoading(false);
+  };
+
+  return (
+    <div className="bg-white bg-opacity-10 backdrop-blur-lg p-5 rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300 border border-gray-700 flex flex-col">
+      <div className="relative w-full h-48 rounded-xl overflow-hidden shadow-md bg-gray-800">
+        {isLoading && <ImageSkeleton />}
+        
+        <Image
+          src={project.image}
+          alt={project.title}
+          layout="fill"
+          objectFit="cover"
+          loading="lazy"
+          className={`rounded-xl transition-opacity duration-500 ${
+            isLoading ? 'opacity-0' : 'opacity-100'
+          }`}
+          onLoadingComplete={handleImageLoad}
+          onError={handleImageError}
+          quality={75}
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+        />
+
+        {error && (
+          <div className="absolute inset-0 flex items-center justify-center bg-gray-700 rounded-xl">
+            <span className="text-gray-400 text-sm">Image not available</span>
+          </div>
+        )}
+      </div>
+
+      <h3 className="mt-5 text-2xl font-semibold text-white">{project.title}</h3>
+      <p className="mt-2 text-gray-300 text-sm md:text-base text-justify">
+        {project.description}
+      </p>
+
+      <div className="mt-4 flex flex-wrap gap-2">
+        {project.technologies.map((tech, index) => (
+          <span
+            key={index}
+            className="bg-white/20 px-3 py-1 text-xs rounded-full flex justify-center items-center text-gray-100 font-medium"
+          >
+            {tech}
+          </span>
+        ))}
+      </div>
+
+      <div className="mt-6 flex justify-between">
+        <a
+          href={project.liveDemo}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 bg-yellow-500 hover:bg-yellow-600 px-4 py-2 rounded-lg text-black font-medium text-sm shadow-md transition-all duration-300"
+        >
+          <FiExternalLink />
+          Live Demo
+        </a>
+        <a
+          href={project.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 bg-gray-800 hover:bg-gray-900 px-4 py-2 rounded-lg text-white font-medium text-sm shadow-md transition-all duration-300"
+        >
+          <FiGithub />
+          GitHub
+        </a>
+      </div>
+    </div>
+  );
+};
 
 const projects = [
    {
@@ -23,16 +111,16 @@ const projects = [
     liveDemo: "https://shadow-console-chat.vercel.app/",
     github: "https://github.com/Esakkipandi0214/shadow-console-chat.git",
   },
-  {
-  id: 2,
-  title: "Online Course Portal",
-  description:
-    "Full-stack online course platform with React and Supabase. Users can register, enroll in courses, access curriculum, track progress, and interact with course content. Features secure authentication and a responsive UI.",
-  image: OnlineCourse, // Replace with relevant course portal image
-  technologies: ["React", "Supabase", "Tailwind", "TypeScript"],
-  liveDemo: "https://dev-course-flax.vercel.app/", // Replace with actual live URL
-  github: "https://github.com/Esakkipandi0214/DevCourse.git",
-},
+//   {
+//   id: 2,
+//   title: "Online Course Portal",
+//   description:
+//     "Full-stack online course platform with React and Supabase. Users can register, enroll in courses, access curriculum, track progress, and interact with course content. Features secure authentication and a responsive UI.",
+//   image: OnlineCourse, // Replace with relevant course portal image
+//   technologies: ["React", "Supabase", "Tailwind", "TypeScript"],
+//   liveDemo: "https://dev-course-flax.vercel.app/", // Replace with actual live URL
+//   github: "https://github.com/Esakkipandi0214/DevCourse.git",
+// },
 {
   id: 3,
   title: "Stock Landing Page",
@@ -53,27 +141,27 @@ const projects = [
   liveDemo: "https://restarent-app.vercel.app", // Actual live URL
   github: "https://github.com/Esakkipandi0214/RestarentApp.git",
 },
-{
-  id: 5,
-  title: "Docs Manager (Buddy)",
-  description:
-    "Buddy is a web app for managing documents and schedules. It supports uploading and organizing files like PDF, Word, and Excel, along with task scheduling using a calendar. Built with React.js, TypeScript, and Firebase, it provides a clean UI for easy file access and productivity management.",
-  image: BuddyTemplate, // Replace with a relevant file manager/calendar app image
-  technologies: ["Next.js", "Firebase", "Tailwind CSS", "TypeScript"],
-  liveDemo: "https://buddy-lac.vercel.app", // Actual live URL
-  github: "https://github.com/Esakkipandi0214/Buddy.git",
-}
-,
- {
-  id: 6,
-  title: "Personal Money Manager",
-  description:
-    "Manage your personal finances with ease. Track expenses, plan budgets, and monitor spending. Built with React, Tailwind, Express, PostgreSQL, and Prisma.",
-  image: MonayManger, // Replace with relevant project screenshot/image
-  technologies: ["React", "Tailwind", "Express", "PostgreSQL", "Prisma"],
-  liveDemo: "https://flow-savvy-freelancer.vercel.app/", // Replace with actual live URL
-  github: "https://github.com/Esakkipandi0214/flow-savvy-freelancer.git",
-},
+// {
+//   id: 5,
+//   title: "Docs Manager (Buddy)",
+//   description:
+//     "Buddy is a web app for managing documents and schedules. It supports uploading and organizing files like PDF, Word, and Excel, along with task scheduling using a calendar. Built with React.js, TypeScript, and Firebase, it provides a clean UI for easy file access and productivity management.",
+//   image: BuddyTemplate, // Replace with a relevant file manager/calendar app image
+//   technologies: ["Next.js", "Firebase", "Tailwind CSS", "TypeScript"],
+//   liveDemo: "https://buddy-lac.vercel.app", // Actual live URL
+//   github: "https://github.com/Esakkipandi0214/Buddy.git",
+// }
+// ,
+//  {
+//   id: 6,
+//   title: "Personal Money Manager",
+//   description:
+//     "Manage your personal finances with ease. Track expenses, plan budgets, and monitor spending. Built with React, Tailwind, Express, PostgreSQL, and Prisma.",
+//   image: MonayManger, // Replace with relevant project screenshot/image
+//   technologies: ["React", "Tailwind", "Express", "PostgreSQL", "Prisma"],
+//   liveDemo: "https://flow-savvy-freelancer.vercel.app/", // Replace with actual live URL
+//   github: "https://github.com/Esakkipandi0214/flow-savvy-freelancer.git",
+// },
   {
     id: 7,
     title: "Todo App",
@@ -94,16 +182,16 @@ const projects = [
     liveDemo: "https://file-encryptor-mu.vercel.app/",
     github: "https://github.com/Esakkipandi0214/FileEncryptor.git",
   },
-   {
-    id: 9,
-    title: "Travel App",
-    description:
-      "PAPPUTRAVELS is a smart travel app that helps users discover destinations and pre-defined packages with place descriptions.",
-    image: TravelApp,
-    technologies: ["Next.js", "MongoDB", "Node.js", "Tailwind", "TypeScript"],
-    liveDemo: "https://papputravels.vercel.app/",
-    github: "https://github.com/Esakkipandi0214/PAPPUTRAVELS.git",
-  }
+  //  {
+  //   id: 9,
+  //   title: "Travel App",
+  //   description:
+  //     "PAPPUTRAVELS is a smart travel app that helps users discover destinations and pre-defined packages with place descriptions.",
+  //   image: TravelApp,
+  //   technologies: ["Next.js", "MongoDB", "Node.js", "Tailwind", "TypeScript"],
+  //   liveDemo: "https://papputravels.vercel.app/",
+  //   github: "https://github.com/Esakkipandi0214/PAPPUTRAVELS.git",
+  // }
 ];
 
 const Projects = () => {
@@ -118,57 +206,7 @@ const Projects = () => {
 
       <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-8 max-w-6xl mx-auto">
         {projects.map((project) => (
-          <div
-            key={project.id}
-            className="bg-white bg-opacity-10 backdrop-blur-lg p-5 rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300 border border-gray-700 flex flex-col"
-          >
-            <div className="relative w-full h-48 rounded-xl overflow-hidden shadow-md">
-              <Image
-                src={project.image}
-                alt={project.title}
-                layout="fill"
-                objectFit="cover"
-                className="rounded-xl"
-              />
-            </div>
-
-            <h3 className="mt-5 text-2xl font-semibold text-white">{project.title}</h3>
-            <p className="mt-2 text-gray-300 text-sm md:text-base text-justify">
-              {project.description}
-            </p>
-
-            <div className="mt-4 flex flex-wrap gap-2">
-              {project.technologies.map((tech, index) => (
-                <span
-                  key={index}
-                  className="bg-white/20 px-3 py-1 text-xs rounded-full flex justify-center items-center text-gray-100 font-medium"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-
-            <div className="mt-6 flex justify-between">
-              <a
-                href={project.liveDemo}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 bg-yellow-500 hover:bg-yellow-600 px-4 py-2 rounded-lg text-black font-medium text-sm shadow-md transition-all duration-300"
-              >
-                <FiExternalLink />
-                Live Demo
-              </a>
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 bg-gray-800 hover:bg-gray-900 px-4 py-2 rounded-lg text-white font-medium text-sm shadow-md transition-all duration-300"
-              >
-                <FiGithub />
-                GitHub
-              </a>
-            </div>
-          </div>
+          <ProjectCard key={project.id} project={project} />
         ))}
       </div>
     </section>
